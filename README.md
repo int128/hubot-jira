@@ -7,12 +7,18 @@ A Hubot script for creating backlogs on JIRA.
 
 Add the script into `scripts` of Hubot.
 
+Add dependencies:
+
+```sh
+npm install --save request-promise bluebird
+```
+
 Set environment variables:
 
-Key | Value
-----|------
-JIRA_URL        | JIRA URL such as `http://jira.example.com`
-JIRA_USER       | JIRA user
-JIRA_PASSWORD   | JIRA password
-JIRA_BACKLOG_ID | Type ID of backlogs such as `10001`
-JIRA_SUBTASK_ID | Type ID of sub-tasks such as `10002`
+Key | Value | Example
+----|-------|--------
+JIRA_URL        | JIRA URL                    | `http://jira.example.com`
+JIRA_USER       | JIRA user                   | `jira`
+JIRA_PASSWORD   | JIRA password               | `jira`
+JIRA_BACKLOG_ID | Issue type ID of backlogs   | `10001`
+JIRA_SUBTASK_ID | Issue type ID of sub-tasks  | `10002`
