@@ -11,11 +11,10 @@ Promise = require 'bluebird'
 # [B](f: (A) ⇒ [B]): [B]
 Array.prototype.flatMap = (lambda) ->
   Array.prototype.concat.apply([], this.map(lambda))
- 
+
 class Jira
-  constructor: (project, component) ->
+  constructor: (project) ->
     @_project = project
-    @_component = component
  
   _get: (path) ->
     if process.env.JIRA_URL
@@ -60,7 +59,6 @@ class Jira
           fields:
             project:
               key: @_project
-            components: [name: @_component]
             summary: backlog.name
             issuetype:
               id: process.env.JIRA_BACKLOG_ID
@@ -72,7 +70,6 @@ class Jira
           fields:
             project:
               key: @_project
-            components: [name: @_component]
             summary: task.name
             timetracking:
               originalEstimate: task.hours
@@ -100,8 +97,7 @@ module.exports = (robot) ->
  
   robot.respond /create (.+?) backlog/m, (res) ->
     jiraProjectKey = res.match[1]
-    jiraComponent = undefined
-    jira = new Jira(jiraProjectKey, jiraComponent)
+    jira = new Jira(jiraProjectKey)
  
     backlogs = findBacklogNotation(res.message.text)
  
