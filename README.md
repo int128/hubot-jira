@@ -1,6 +1,6 @@
-# hubot-jira-backlog
+# Hubot script for JIRA
 
-A Hubot script for creating backlogs on JIRA.
+A Hubot script for notifying JIRA events and creating backlogs on JIRA.
 
 
 ## How to Use
@@ -53,3 +53,4 @@ JIRA_USER       | JIRA user                   | `jira`
 JIRA_PASSWORD   | JIRA password               | `jira`
 JIRA_BACKLOG_ID | Issue type ID of backlogs   | `10001`
 JIRA_SUBTASK_ID | Issue type ID of sub-tasks  | `10002`
+BOT_CHANNEL_ID  | Channel ID                  | -
